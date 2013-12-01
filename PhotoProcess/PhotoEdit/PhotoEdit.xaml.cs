@@ -22,7 +22,7 @@ namespace PhotoProcess.PhotoEdit
 {
     public partial class PhotoEdit : PhoneApplicationPage
     {
-        private WriteableBitmap selectedBmpIamge;
+        private WriteableBitmap selectedBmpImage;
         private WriteableBitmap processedBmpImage;
         private Stack<WriteableBitmap> processBmpImageStack;
 
