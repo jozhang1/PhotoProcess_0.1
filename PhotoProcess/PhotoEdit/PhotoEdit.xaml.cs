@@ -12,6 +12,7 @@ using Microsoft.Phone;
 using Microsoft.Phone.Controls;
 using Microsoft.Phone.Shell;
 using Microsoft.Phone.Tasks;
+using System.Windows.Media;
 
 using Nokia.Graphics.Imaging;
 
@@ -86,10 +87,10 @@ namespace PhotoProcess.PhotoEdit
                 e.ChosenPhoto.Read(imageData, 0, imageData.Length);
 
                 MemoryStream ms = new MemoryStream(imageData);
-                this.selectedBmpIamge = PictureDecoder.DecodeJpeg(ms);
-                this.imageChosenToEdit.Source = selectedBmpIamge;
+                this.selectedBmpImage = PictureDecoder.DecodeJpeg(ms);
+                this.imageChosenToEdit.Source = selectedBmpImage;
                 this.processBmpImageStack.Clear();
-                this.processBmpImageStack.Push(selectedBmpIamge);
+                this.processBmpImageStack.Push(selectedBmpImage);
             }
         }
 
@@ -165,7 +166,9 @@ namespace PhotoProcess.PhotoEdit
         {
             // Set the page's ApplicationBar to a new instance of ApplicationBar.
             ApplicationBar = new ApplicationBar();
-
+            ApplicationBar.Mode = ApplicationBarMode.Default;
+            ApplicationBar.ForegroundColor = new Color { A = 255, R = 26, G = 72, B = 165 };
+            ApplicationBar.Opacity = 1;
             appBarBackButton = new ApplicationBarIconButton(
                     new Uri("/Assets/back.png", UriKind.Relative));
             appBarBackButton.Text = "Back To Main";

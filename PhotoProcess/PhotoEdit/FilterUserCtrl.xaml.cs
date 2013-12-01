@@ -7,6 +7,9 @@ using System.Windows.Navigation;
 using Microsoft.Phone.Controls;
 using Microsoft.Phone.Shell;
 using Nokia.Graphics.Imaging;
+using Windows.Foundation;
+
+
 namespace PhotoProcess.PhotoEdit
 {
     public partial class FilterUserCtrl : UserControl
