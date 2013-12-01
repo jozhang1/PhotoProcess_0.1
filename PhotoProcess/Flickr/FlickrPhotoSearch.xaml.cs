@@ -13,7 +13,7 @@ using Windows.Devices.Geolocation;
 using System.Net.Http;
 using Newtonsoft.Json;
 using System.Windows.Media.Imaging;
-
+using System.Windows.Media;
 namespace PhotoProcess.Flickr
 {
     public partial class FlickrPhotoSearch : PhoneApplicationPage
@@ -56,6 +56,9 @@ namespace PhotoProcess.Flickr
         {
             // Set the page's ApplicationBar to a new instance of ApplicationBar.
             ApplicationBar = new ApplicationBar();
+            ApplicationBar.Mode = ApplicationBarMode.Default;
+            ApplicationBar.ForegroundColor = new Color { A = 255, R = 26, G = 72, B = 165 };
+            ApplicationBar.Opacity = 1;
 
             ApplicationBarIconButton appBarSearchButton = new ApplicationBarIconButton(
                     new Uri("/Assets/search.png", UriKind.Relative));

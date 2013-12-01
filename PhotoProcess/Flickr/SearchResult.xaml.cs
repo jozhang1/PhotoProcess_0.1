@@ -10,6 +10,7 @@ using Microsoft.Phone.Controls;
 using Microsoft.Phone.Shell;
 
 using PhotoProcess.AssistLib;
+using System.Windows.Media;
 
 namespace PhotoProcess.Flickr
 {
@@ -17,7 +18,8 @@ namespace PhotoProcess.Flickr
     {
         // API key
         private const string flickrApiKey = "6958b431c0133c63069347ef6723747a";
-        
+        ApplicationBarIconButton appBarSaveButton;
+
         private double latitude;
         private double longitude;
         private double radius;
@@ -72,12 +74,16 @@ namespace PhotoProcess.Flickr
         {
             // Set the page's ApplicationBar to a new instance of ApplicationBar.
             ApplicationBar = new ApplicationBar();
+            ApplicationBar.Mode = ApplicationBarMode.Default;
+            ApplicationBar.ForegroundColor = new Color { A = 255, R = 26, G = 72, B = 165 };
+            ApplicationBar.Opacity = 1;
 
-            ApplicationBarIconButton appBarSaveButton =  new ApplicationBarIconButton(
+            appBarSaveButton =  new ApplicationBarIconButton(
                     new Uri("/Assets/save.png", UriKind.Relative));
             appBarSaveButton.Text = "Save";
             appBarSaveButton.Click += SaveToPhotoLibrary;
             ApplicationBar.Buttons.Add(appBarSaveButton);
+            appBarSaveButton.IsEnabled = false;
 
             ApplicationBarIconButton appBarBackButton = new ApplicationBarIconButton(
                     new Uri("/Assets/back.png", UriKind.Relative));
@@ -118,7 +124,11 @@ namespace PhotoProcess.Flickr
             if (PhotoToSave.SelectedItems.Count == 0)
                 ApplicationBar.IsVisible = false;
             else
+            {
+                appBarSaveButton.IsEnabled = true;
                 ApplicationBar.IsVisible = true;
+            }
+                
         }
     }
 }

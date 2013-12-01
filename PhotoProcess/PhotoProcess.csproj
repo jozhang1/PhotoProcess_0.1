@@ -141,6 +141,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="PhotoEdit\BtnTemplate.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="PhotoEdit\ButtonTemplate.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -183,6 +187,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Assets\back.png" />
+    <Content Include="Assets\background.png" />
     <Content Include="Assets\camera.png" />
     <Content Include="Assets\cancel.png" />
     <Content Include="Assets\check.png" />
